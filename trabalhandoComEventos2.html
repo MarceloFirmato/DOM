@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <script>
+        const item = document.querySelector('div') //aqui recebe a div
+        item.style.position = 'absolute' //nesse caso o item tem sua position alterada
+
+        item.onmousemove = e => {
+            const item = e.target
+            item.style.cursor = 'move' //nesse caso da-se ao atributo a caracteristica de ser algo movel ( cursop de mexer)
+            if(e.buttons) { //e.buttons aciona quando o botao for clicado ( ficando verdadeiro )
+                item.style.top = `${e.clientY - (item.clientHeight/2)}px`
+                //o target (div) representado pelo e.target foi adicionado ao item e o ,style.top joga ele pra cima, permitindo a movimentaçõao do eixo y(clientY)
+                item.style.left = `${e.clientX - (item.clientWidth/2)}px`
+
+            }
+        }
+    </script>
+</body>
+
+<!-- // um evento é gerado em alguma interçaõ com a pagina, isso ativa funções JS que vão cuidar desse clique como um  -->

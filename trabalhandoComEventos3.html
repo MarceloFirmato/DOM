@@ -1,0 +1,68 @@
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #03</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+        }
+        
+        .esquerda {
+            height: 100vh;
+            width: 50%;
+            background-color: coral;
+        }
+        
+        .direita {
+            height: 100vh;
+            width: 50%;
+            background-color: cornflowerblue;
+        }
+        
+        .item {
+            border: solid 5px black;
+            background-color: darkgrey;
+            color: white;
+            height: 100px;
+            font-size: 40px;
+            margin: 10px;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="esquerda" wm-dropzone>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div class="direita" wm-dropzone></div>
+    <script>
+        const items = document.querySelectorAll('[wm-dropzone] .item') //selecionando os elementos com classe .item
+        items.forEach((item, index) => { //aplicando o foreach em cada elemento ou seja ao clicar em um elemento ele recebera as propriedades abaixo
+        item.draggable = true // a propriedade draggable permite arrastar o elemento precisamos setar um local pra 'deposita-lo' 
+        item.id = item.id || `draggable-item-${index}` // nesse caso item estara recebendo um id caso nao tenha, por isso o oprador || se ja tiver ok se nao será criado (|| ou tem ou será criado0
+        item.ondragstart = e =>  //setando o evento de grab do elementpo ou seja o inicio do transferencia
+            e.dataTransfer.setData('item-id', e.target.id)
+    })
+        // agora é nexessario criar o evento que recebera os elementos arrastados (dropzone)
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+        dropzones.forEach( dropzone => {
+            dropzone.ondragover = e => e.preventDefault() //vai previnir o comportamento padrao que e soltar sozinho
+            dropzone.ondrop = function(e) {
+                const id = e.dataTransfer.getData('item-id') //um set foi criado na linha 53, agora preciso pegar ele (get) pra poder arrstar e receber
+                const item = document.getElementById(id) //recebe o elemento 
+                dropzone.appendChild(item) //coloca o elemento como filho da div recebedora
+            }
+        })
+    </script>
+</body>
+
+</html>

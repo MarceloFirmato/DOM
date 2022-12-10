@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img =document.querySelector('img')
+        /* normal vc chama elemento, com . uma classe, # um id, [propriedade]*/
+        /* é possível pegar um atributo do elemento selecionado*/ 
+        console.log('getAttribute',img.getAttribute('src')) /*nesse caso ele pega o valor do atributo src*/
+        console.log('src', img.src)
+        console.log('["src"]', img['src'])
+        console.log('alt',img.alt)
+        
+
+
+    </script>
+</body>
+
+</html>

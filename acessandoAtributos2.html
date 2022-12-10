@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5"
+        data-blabla="opa">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>                                /* div que contém uma ul que contem um atributo*/
+        const lista = document.querySelector('div ul[destino="escritório"]') /*poderia substituir pelo id #compras*/
+        console.log('destino', lista.destino) /*nesse caso ele nao consegue acessar destino pois destino é uma propiedade criada e nao nativa do html*/
+        /* nesse caso é melhor usar o getAttribute*/ 
+        console.log('getAttribute', lista.getAttribute('destino'))
+        /* a função hasAttribute mostra se um atributo esta ou nao no elemento selecionado*/ 
+        console.log('hasAttribute', lista.hasAttribute('destino'))
+        /* a funcao get pega um atributo, a funcao set muda um atributo*/ 
+        lista.setAttribute('destino', 'empresa')  /* muda no html do browser*/ 
+        /* set pode ser usado pra colocar um atributo que ainda nao existe no elemento*/ 
+        lista.setAttribute('status', 'aberto')
+        /* è possível remover um atributo com removeAttribute*/ 
+        lista.removeAttribute('destino')
+        // ao criar um atributo, em geral, por uma questap de boas praticas coloca-se data- antes dele
+        console.log(lista.dataset) /* mostra os atributos com data- na frente*/
+        
+        const label = document.querySelector('label')
+        console.log(label.for) /*nesse caso ele nao reconhece pq esse for é uma palavra reservada e nao pode ser identificador*/
+        /*pra resolver isso basta usar htmlFor*/ 
+        console.log(label.htmlFor)
+        console.log(label.getAttribute('for'))
+    
+    
+    
+    
+    </script>
+</body>
+
+</html>

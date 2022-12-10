@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navegarEm5s(event) foi tirado do a  -->
+        <a espera-um-pouco href="https://google.com.br"
+        ">Google</a>
+    </div>
+    <script>
+        function navegarEm5s(e) {
+        e.preventDefault() //previne que o clique seja executado
+        console.log('Saindo em 5s...') //mostra que o clique foi interceptado
+        setTimeout(() => {
+            const link = e.target //recebe o clique
+            window.location.href = link.href
+            //window.location.href é o link inicial que sera alterado 
+            // (pelo = na sentença) para o link coloado no HTML 
+            }, 5000)
+        }
+
+        //uma segunda forma de fazer isso (pegar o clique) seria 
+        const a = document.querySelector('a')
+        a.onclick = navegarEm5s //nesse caso o codigo fica menor mas nao esta marcedo na tag que algo esta manipulando ela por JS
+
+
+        //pode ser feito atraves de um atributo personalizado
+        //se há um atributo personalizado, subentende-se que existe um java srit maniopulado o mesmo
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+        //costuma ser o melhor caminho pra trabalhar 
+        
+    </script>
+</body>

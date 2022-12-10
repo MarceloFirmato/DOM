@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Texto Inicial</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        div.innerHTML = 'Texto Alterado'
+            // innerHTML altera o texto dentro da div selecionada
+        // div.outerHTML = 'Texto Alterado'
+            //nesse caso outerHTML substitui o conteudo e a div tbm ( por isso outer)
+        div.insertAdjacentHTML('beforebegin','<p>Antes Início</p>')
+            // insertAdjacentHTML coloca o elemento adjacente (antes ou depois) do elemento chamado nesse caso entra antes da div ( div nesse caso )
+        div.insertAdjacentHTML('afterbegin','<p>Depois Início</p>')
+            // nesse caso ele entra assim que a div começa (usando o afterbegin)
+        div.insertAdjacentHTML('beforeend','<p>Antes Fim</p>')
+            // nesse caso ele entra antes da div acabar
+        div.insertAdjacentHTML('afterend','<p>Depois Fim</p>')
+        
+        //é possível acessar apenas o texto com InnerText
+        console.log(div.innerText)
+
+        // const p = document.querySelector('p')
+        // p.innerHTML = 'Texto Alterado'
+    </script>
+</body>
+
+</html>

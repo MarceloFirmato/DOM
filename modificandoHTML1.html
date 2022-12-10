@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div') // nesse caso esta sendo criada uma div a partir do createElement
+        div1.classList.add('destaque') //foi criada uma classe pra div criada acima
+        div1.innerHTML = 'Primeiro' // foi criada o conteudo da div1
+
+        const div2 = document.createElement('div') //criou se a div
+        div2.setAttribute('wm-atributo', 'valor')
+        div2.innerHTML = 'Segundo'
+//tendo sido craiada a div ela precisa ser adicionada ao body
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+        const div3 = document.createElement('div')
+        div3.appendChild(p) //adiciona p como ultimo elemento da div3
+        
+        // adicionando as divs no body
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+                                //cria um texto no HTML
+        const texto = document.createTextNode('Antes...')
+        div3.insertBefore(texto, div3.childNodes[0])
+        //foi adicionado um texto na div3 antes do elemento de indice 0 (primeiro)
+
+
+        //É possivel clonar um elemento atravez do cloneNode 
+        const div4 = div3.cloneNode(true) //true copia o elemento e os flihos, false copia somente o elemento
+        body.appendChild(div4)
+        body.removeChild(div3)
+    </script>
+</body>
+
+</html>

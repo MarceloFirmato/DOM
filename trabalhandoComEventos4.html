@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #04</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1>
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+                <option value="pt-br">Português (Brasil)</option>
+                <option value="en-us">Inglês (Americano)</option>
+            </select>
+        <button wm-submit>Pesquisar</button>
+    </form>
+    <script>
+        // nosso objetivo é interceptar os dados do formulario ( a fim de trabalhar eles)
+        //podemos fazer isso no acionamento do botao pesquisar(submit)
+        const submit = document.querySelector('[wm-submit]') // armazenado o clique do botao
+        submit.onclick = function(e) {
+            e.preventDefault() //vai previnir o comportamento padrão
+
+            const form = e.target.parentNode //e.target é o nosso alvo ( o acionamento do botao) parentNode pega os dados que o envolvem
+            const formData = new FormData(form) //FormData é o comando dado pra receber os elementos de um formulario
+            // a partir daqui podemos receber e tratar esses dados
+            //podemos inserir dados
+            formData.append('ajax',true) //insere esse elemendo no formdata
+            console.log(formData.get('q')) //mostra o elemento q do formulario
+            
+            //podemos aplicar um for e iterar os dados
+            for(let dado of formData) {
+                console.log(dado)
+            }
+
+            
+        }
+    </script>
+</body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #03</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário</h1> 
+    <!-- dentro dos campos de entrada de um formulario é necessario por name=  -->
+    <form name="pesquisa" action="http://www.google.com.br/search">
+        <input type="text" name="q" placeholder="Digite o termo...">
+        <select name="hl">
+            <option value="pt-br">Português (Brasil)</option>
+            <option value="en-us">Inglês (Americano)</option>
+        </select>
+        <button>Pesquisar</button>
+    </form>
+    <script>
+        console.log(document.forms)
+        console.log(document.forms[0]) /* mostra como um array*/
+        console.log(document.pesquisa) /* ele tem um elemento pesquisa acima*/ 
+        console.log(document.pesquisa.q) /* ele tem um elemento pesquisa acima*/ 
+        document.pesquisa.q.value = "Linux" /*altera o valor inicial do elemento */ 
+        document.pesquisa.hl.value = "en-us"
+        /*q e hl sao padroes que a pesquisa do google suporta*/
+
+    </script>
+</body>
+
+</html>

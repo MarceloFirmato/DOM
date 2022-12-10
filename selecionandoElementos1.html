@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        document.getElementById('primeiro').classList.add('destaque') /* como ele ja espera receber um id nao precisa colocar #*/
+        /* ao usar getelements vc recebe um HTML colletion com os valores*/
+        const divs = document.getElementsByTagName('div')
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+        /*nesse caso pegamos todos os elementos com div e removemos a classe destaque
+        transformamos em um array pra poder operar com forEach*/
+        const divArray = [...divs] /* é uma outra forma de transformar em array os divs coletados*/
+        divArray.forEach(e => e.classList.add('destaque'))
+        /* nesse caso adicionamos a classe destaque a todos que tem div*/
+
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for( let e of ultimosElementos){
+            e.classList.remove('destaque')
+        } /* nesse caso estamos iterando os elementos obtidos na html collection acima*/
+/* nessa aula usamos 3 seletores de elementos e cada um deles devolve um html colletion, 
+esse html pode ser convertido pra um array com o comando.array ou com o operador spred
+ou mesmo nao sendo transformado pode ser iterado com for*/
+    </script>
+</body>
+</html>

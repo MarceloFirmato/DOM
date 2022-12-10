@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>    
+        /* o queryselector espera um seletor, e e´mais bem flexivel, 
+        classe id tag atributo elemento dentro de outro, 
+        elementos sem uma determinada classe sao todos aceitos, por isso usaremos o # 
+        pra identificar que é um id*/
+        /*queryselector pega apenas o primeiro*/
+        document.querySelector('#primeiro').classList.add('destaque')
+        /*queryselector retorna um nodelist, que já tem o froEach imbutido*/
+        /*pode ser convertido em array sem problema*/
+        const selecionar = seletor => 
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque')) 
+        const deselecionar = seletor => 
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque')) 
+        /*nesse caso criamos uma funcao atraves de uma const pra poder inserir ou remover uma
+        classe ao seletor fornecido*/
+        selecionar('div')
+        deselecionar('.terceiro.ultimo') /*id vai com # classe com . seletor sem nada*/ 
+
+        deselecionar('*') /* '*' é um seletor universal */ 
+        selecionar(':not(#primeiro)')
+        deselecionar('*')
+        selecionar(':nth-child(1)') /*seleciona o primeiro filho de cada elemento */
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') /* seleciona o primeiro do tipo mencionado*/ 
+        deselecionar('*')
+        selecionar('[wb-attrib]') /* a partir de um atributo ele deve vir entre []*/ 
+
+
+</script>
+</body>
+</html>
