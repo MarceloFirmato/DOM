@@ -29,7 +29,7 @@ function ParDeBarreiras(altura, abertura, x){
     // ao usar o this vc joga o atributo pra fora da função
     this.sortearAbertura = () => {
         const alturaSuperior = Math.random() * (altura - abertura)
-        const alturaInferior = (altura - abertura + alturaSuperior)
+        const alturaInferior = (altura - abertura - alturaSuperior)
         this.superior.setAltura(alturaSuperior)
         this.inferior.setAltura(alturaInferior)
     }
