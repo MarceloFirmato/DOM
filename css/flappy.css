@@ -50,7 +50,8 @@
 }
 .progresso{
     position: absolute;
-    right: 10px;
+    /* pq nao fica no right? */
+    right: 10px; 
     top: 10px;
     font-family: Pixel;
     font-size: 70px;
