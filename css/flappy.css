@@ -48,11 +48,11 @@
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
-.progresso{
+.progresso {
     position: absolute;
     /* pq nao fica no right? */
     right: 10px; 
     top: 10px;
-    font-family: Pixel;
+    font-family: 'Pixel';
     font-size: 70px;
 }
