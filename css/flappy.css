@@ -19,10 +19,10 @@
   position: absolute;
   width: 60px;
   left: calc(50% - 30px);
-  bottom: 50%;
+  
 }
 
-.par-de-barreira{
+.par-de-barreiras{
     position: absolute;
     top: 0;
     height: 100%;
@@ -50,9 +50,9 @@
 }
 .progresso {
     position: absolute;
-    /* pq nao fica no right? */
     right: 10px; 
     top: 10px;
     font-family: 'Pixel';
     font-size: 70px;
+    z-index: 100;
 }
